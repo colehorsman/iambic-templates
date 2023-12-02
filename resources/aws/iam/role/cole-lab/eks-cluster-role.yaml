@@ -1,0 +1,17 @@
+template_type: NOQ::AWS::IAM::Role
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_role_template
+included_accounts:
+  - cole-lab
+identifier: eks-cluster-role
+properties:
+  description: Allows access to other AWS service resources that are required to operate clusters managed by EKS.
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          service: eks.amazonaws.com
+    version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+  role_name: eks-cluster-role

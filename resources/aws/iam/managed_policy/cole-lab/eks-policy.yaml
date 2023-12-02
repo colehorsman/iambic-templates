@@ -1,0 +1,25 @@
+template_type: NOQ::AWS::IAM::ManagedPolicy
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_managed_policy_template
+included_accounts:
+  - cole-lab
+identifier: eks-policy
+properties:
+  policy_document:
+    statement:
+      - action:
+          - ec2:CreateTags
+        condition:
+          ForAnyValue:StringLike:
+            aws:TagKeys: kubernetes.io/cluster/*
+        effect: Allow
+        resource: arn:aws:ec2:*:*:instance/*
+      - action:
+          - ec2:DescribeDhcpOptions
+          - ec2:DescribeInstances
+          - ec2:DescribeNetworkInterfaces
+          - ec2:DescribeVpcs
+          - kms:DescribeKey
+        effect: Allow
+        resource: '*'
+    version: '2012-10-17'
+  policy_name: eks-policy

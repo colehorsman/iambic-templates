@@ -1,0 +1,31 @@
+template_type: NOQ::Core::Config
+version: 0.11.97
+aws:
+  accounts:
+    - account_id: '459123723326'
+      account_name: cole-lab
+      iambic_managed: read_and_write
+      org_id: o-9dt15iy2fz
+      spoke_role_arn: arn:aws:iam::459123723326:role/IambicSpokeRole
+    - account_id: '745678212997'
+      account_name: identity
+      iambic_managed: read_and_write
+      org_id: o-9dt15iy2fz
+      spoke_role_arn: arn:aws:iam::745678212997:role/IambicSpokeRole
+      variables:
+        - key: data
+          value: private
+        - key: billing
+          value: identity
+  organizations:
+    - aws_profile: default
+      default_rule:
+        iambic_managed: read_and_write
+      hub_role_arn: arn:aws:iam::459123723326:role/IambicHubRole
+      identity_center:
+        region: us-east-1
+      org_account_id: '459123723326'
+      org_id: o-9dt15iy2fz
+  sqs_cloudtrail_changes_queues:
+    - arn:aws:sqs:us-east-1:459123723326:IAMbicChangeDetectionQueue
+template_schema_url: https://docs.iambic.org/reference/schemas/config

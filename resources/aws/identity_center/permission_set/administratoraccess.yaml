@@ -1,4 +1,5 @@
 template_type: NOQ::AWS::IdentityCenter::PermissionSet
+iambic_managed: enforced
 template_schema_url: https://docs.iambic.org/reference/schemas/aws_identity_center_permission_set_template
 access_rules:
   - included_accounts:

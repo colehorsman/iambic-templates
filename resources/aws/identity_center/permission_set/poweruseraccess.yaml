@@ -1,0 +1,8 @@
+template_type: NOQ::AWS::IdentityCenter::PermissionSet
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_identity_center_permission_set_template
+identifier: PowerUserAccess
+properties:
+  name: PowerUserAccess
+  managed_policies:
+    - arn: arn:aws:iam::aws:policy/PowerUserAccess
+  session_duration: PT2H

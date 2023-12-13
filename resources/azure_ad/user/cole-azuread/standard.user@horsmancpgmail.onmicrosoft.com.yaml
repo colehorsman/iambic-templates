@@ -1,0 +1,8 @@
+template_type: NOQ::AzureAD::User
+template_schema_url: https://docs.iambic.org/reference/schemas/azure_active_directory_user_template
+idp_name: cole-azuread
+properties:
+  display_name: Standard User
+  given_name: Standard
+  user_id: 50e95960-0631-4bc3-8e6e-910091cdc210
+  username: standard.user@horsmancpgmail.onmicrosoft.com

@@ -1,0 +1,8 @@
+template_type: NOQ::AzureAD::User
+template_schema_url: https://docs.iambic.org/reference/schemas/azure_active_directory_user_template
+idp_name: cole-azuread
+properties:
+  display_name: Cole Horsman
+  given_name: Cole
+  user_id: 4d57c780-88de-4a50-af38-a7eb08a8c71a
+  username: horsmancp_gmail.com#EXT#@horsmancpgmail.onmicrosoft.com

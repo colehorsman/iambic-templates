@@ -1,0 +1,19 @@
+template_type: NOQ::AWS::IAM::User
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_user_template
+included_accounts:
+  - cole-lab
+identifier: iambic-role
+properties:
+  credentials:
+    access_keys:
+      - enabled: true
+        id: AKIAWVZPIBQ7O64X7LEL
+        last_used: Within the last 30 days
+    password:
+      enabled: true
+      last_used: Never
+  managed_policies:
+    - policy_arn: arn:aws:iam::459123723326:policy/assume_iambic_hub
+    - policy_arn: arn:aws:iam::aws:policy/AWSOrganizationsFullAccess
+    - policy_arn: arn:aws:iam::aws:policy/AdministratorAccess
+  user_name: iambic-role

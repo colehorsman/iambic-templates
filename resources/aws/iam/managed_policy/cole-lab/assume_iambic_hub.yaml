@@ -1,0 +1,23 @@
+template_type: NOQ::AWS::IAM::ManagedPolicy
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_managed_policy_template
+included_accounts:
+  - cole-lab
+identifier: assume_iambic_hub
+properties:
+  policy_document:
+    statement:
+      - action:
+          - sts:DecodeAuthorizationMessage
+          - sts:GetAccessKeyInfo
+          - sts:GetCallerIdentity
+          - sts:GetServiceBearerToken
+          - sts:GetSessionToken
+        effect: Allow
+        resource: '*'
+        sid: VisualEditor0
+      - action: sts:*
+        effect: Allow
+        resource: arn:aws:iam::459123723326:role/IambicHubRole
+        sid: VisualEditor1
+    version: '2012-10-17'
+  policy_name: assume_iambic_hub

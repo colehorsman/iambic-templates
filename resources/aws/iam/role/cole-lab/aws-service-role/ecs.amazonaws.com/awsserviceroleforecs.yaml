@@ -1,0 +1,19 @@
+template_type: NOQ::AWS::IAM::Role
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_role_template
+included_accounts:
+  - cole-lab
+iambic_managed: import_only
+identifier: AWSServiceRoleForECS
+properties:
+  description: Role to enable Amazon ECS to manage your cluster.
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          service: ecs.amazonaws.com
+    version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy
+  path: /aws-service-role/ecs.amazonaws.com/
+  role_name: AWSServiceRoleForECS

@@ -1,0 +1,7 @@
+template_type: NOQ::AzureAD::Group
+template_schema_url: https://docs.iambic.org/reference/schemas/azure_active_directory_group_template
+idp_name: cole-azuread
+properties:
+  name: 'AWS Global Administrators '
+  group_id: fbc4ccdb-f933-4100-be01-844314e88add
+  mail_nickname: b48d9672-0

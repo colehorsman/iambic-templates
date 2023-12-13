@@ -1,0 +1,68 @@
+template_type: NOQ::AWS::Organizations::SCP
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_scp_policy_template
+account_id: '459123723326'
+identifier: test-policy
+org_id: o-9dt15iy2fz
+properties:
+  policy_document:
+    statement:
+      - condition:
+          ArnNotLike:
+            aws:PrincipalARN:
+              - arn:aws:iam::*:role/Role1AllowedToBypassThisSCP
+              - arn:aws:iam::*:role/Role2AllowedToBypassThisSCP
+          StringNotEquals:
+            aws:RequestedRegion:
+              - us-east-1
+              - us-west-2
+        effect: Deny
+        not_action:
+          - a4b:*
+          - acm:*
+          - aws-marketplace-management:*
+          - aws-marketplace:*
+          - aws-portal:*
+          - budgets:*
+          - ce:*
+          - chime:*
+          - cloudfront:*
+          - config:*
+          - cur:*
+          - directconnect:*
+          - ec2:DescribeRegions
+          - ec2:DescribeTransitGateways
+          - ec2:DescribeVpnGateways
+          - fms:*
+          - globalaccelerator:*
+          - health:*
+          - iam:*
+          - importexport:*
+          - kms:*
+          - mobileanalytics:*
+          - networkmanager:*
+          - organizations:*
+          - pricing:*
+          - route53-recovery-cluster:*
+          - route53-recovery-control-config:*
+          - route53-recovery-readiness:*
+          - route53:*
+          - route53domains:*
+          - s3:GetAccountPublic*
+          - s3:ListAllMyBuckets
+          - s3:ListMultiRegionAccessPoints
+          - s3:PutAccountPublic*
+          - shield:*
+          - sts:*
+          - support:*
+          - trustedadvisor:*
+          - waf-regional:*
+          - waf:*
+          - wafv2:*
+          - wellarchitected:*
+        resource: '*'
+        sid: DenyAllOutsideEU
+  policy_id: p-0b7gu5wq
+  policy_name: test-policy
+  targets:
+    accounts:
+      - identity

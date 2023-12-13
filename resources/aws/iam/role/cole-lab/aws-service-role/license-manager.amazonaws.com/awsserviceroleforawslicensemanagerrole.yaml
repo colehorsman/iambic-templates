@@ -1,0 +1,19 @@
+template_type: NOQ::AWS::IAM::Role
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_iam_role_template
+included_accounts:
+  - cole-lab
+iambic_managed: import_only
+identifier: AWSServiceRoleForAWSLicenseManagerRole
+properties:
+  description: Service linked role for License Manager.
+  assume_role_policy_document:
+    statement:
+      - action: sts:AssumeRole
+        effect: Allow
+        principal:
+          service: license-manager.amazonaws.com
+    version: '2012-10-17'
+  managed_policies:
+    - policy_arn: arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy
+  path: /aws-service-role/license-manager.amazonaws.com/
+  role_name: AWSServiceRoleForAWSLicenseManagerRole

@@ -1,0 +1,8 @@
+template_type: NOQ::AzureAD::User
+template_schema_url: https://docs.iambic.org/reference/schemas/azure_active_directory_user_template
+idp_name: cole-azuread
+properties:
+  display_name: Iambic User
+  given_name: Iambic
+  user_id: ddfb3b41-fe5b-498f-b908-411bba236897
+  username: iambic.user@horsmancpgmail.onmicrosoft.com

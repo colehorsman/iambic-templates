@@ -1,0 +1,22 @@
+template_type: NOQ::AWS::IdentityCenter::PermissionSet
+template_schema_url: https://docs.iambic.org/reference/schemas/aws_identity_center_permission_set_template
+access_rules:
+  - included_accounts:
+      - identity
+    included_orgs:
+      - o-9dt15iy2fz
+    users:
+      - horsmancp@gmail.com
+identifier: AdministratorAccess
+properties:
+  name: AdministratorAccess
+  managed_policies:
+    - arn: arn:aws:iam::aws:policy/AdministratorAccess
+  session_duration: PT1H
+  tags:
+    - key: application
+      value: iam
+    - key: billing
+      value: identity
+    - key: data
+      value: private
